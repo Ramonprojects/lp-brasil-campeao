@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brasil Campeão 2026 - MagoTips</title>
+  <!-- Pixel do Facebook -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '953058917590545');
+  fbq('track', 'PageView');
+  async function trackLead(e) {
+    e.preventDefault();
+    const eventId = 'cr_' + Date.now();
+    fbq('track', 'CompleteRegistration', {}, { eventID: eventId });
+    try {
+      await fetch('https://api-ramon-production.up.railway.app/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
+          fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+          userAgent: navigator.userAgent,
+          eventId: eventId
+        })
+      });
+    } catch(err) {}
+    window.location.href = 'https://rmesportivacem.rmmago.uk/';
+  }
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=953058917590545&ev=PageView&noscript=1"
+  /></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      background: #080808;
+      height: 100%;
+      width: 100%;
+      font-family: 'Saira', sans-serif;
+      overflow: hidden;
+    }
+    .card {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card-line-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+      z-index: 3;
+    }
+    .card-line-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+      z-index: 3;
+    }
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('ramon-cropped2.jpeg');
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.97) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.1) 100%);
+      z-index: 2;
+    }
+    .card-content {
+      position: relative;
+      z-index: 3;
+      padding: 20px 24px;
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: 8vh;
+    }
+    .card-eyebrow {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      color: #D4A017;
+      font-size: 34px;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .card-desc strong { color: #fff; font-weight: 700; }
+    .card-scarcity {
+      color: #ff4444;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .card-scarcity span {
+      background: rgba(255,68,68,0.12);
+      border: 1px solid rgba(255,68,68,0.3);
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: inline-block;
+      line-height: 1.4;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: #D4A017;
+      border: none;
+      border-radius: 12px;
+      padding: 17px;
+      color: #000;
+      font-size: 15px;
+      font-weight: 900;
+      font-family: 'Saira', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    .cta-btn:hover { animation: none; opacity: 0.92; }
+    .cta-btn:active { transform: scale(0.98); }
+    .footer-text {
+      color: #333;
+      font-size: 10px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212,160,23,0.4); }
+      50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(212,160,23,0); }
+    }
+    /* POPUP */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      animation: fadeIn 0.3s ease;
+    }
+    .popup-box {
+      background: #0f0f0f;
+      border: 1px solid rgba(212,160,23,0.4);
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: slideUp 0.35s ease;
+    }
+    .popup-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+      border-radius: 20px 20px 0 0;
+    }
+    .popup-icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .popup-tag {
+      display: inline-block;
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.3);
+      border-radius: 50px;
+      padding: 4px 14px;
+      color: #D4A017;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .popup-title {
+      color: #D4A017;
+      font-size: 32px;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .popup-desc {
+      color: #888;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .popup-desc strong { color: #fff; }
+    .popup-close {
+      display: block;
+      width: 100%;
+      background: #D4A017;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      color: #000;
+      font-size: 14px;
+      font-weight: 900;
+      font-family: 'Saira', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .popup-close:active { opacity: 0.85; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-line-top"></div>
+    <div class="card-line-bottom"></div>
+    <div class="card-bg"></div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <p class="card-eyebrow">🇧🇷 BRASIL CAMPEÃO DO MUNDO</p>
+      <p class="card-title">BRASIL CAMPEÃO</p>
+      <p class="card-desc">Fale comigo <strong>AGORA</strong> e receba o bilhete exclusivo para o <strong>Brasil levantar a taça</strong> direto no seu WhatsApp.</p>
+      <p class="card-scarcity"><span>⚠️ Vagas limitadas. Chame agora antes que a entrada seja suspensa.</span></p>
+      <a class="cta-btn" href="https://rmesportivacem.rmmago.uk/" onclick="trackLead(event)">
+        QUERO O BILHETE DO BRASIL 🇧🇷
+      </a>
+      <img src="23.png" alt="MagoTips" style="width: 140px; margin: 24px auto 4px; display: block; opacity: 0.7;">
+      <p class="footer-text">Proibido para menores de 18 anos. © 2026 — Cap Mago Ramon Martins</p>
+    </div>
+  </div>
+  <script>
+    function fecharPopup() {
+      const popup = document.getElementById('popup');
+      popup.style.opacity = '0';
+      popup.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => popup.remove(), 300);
+    }
+  </script>
+</body>
+</html>
+
